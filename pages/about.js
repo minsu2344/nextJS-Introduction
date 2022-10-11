@@ -1,3 +1,11 @@
+import NavBar from "../components/NavBar";
+
 export default function Potato() {
-  return 'about us';
+  return (
+    <div>
+     {/* NavBar 컴포넌트 리액트와 같은 방법으로 추가 */}
+      <NavBar />
+      <h1>About</h1>
+    </div>
+  )
 }
