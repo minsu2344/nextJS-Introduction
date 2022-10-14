@@ -6,12 +6,15 @@ export default function NavBar() {
 
   return(
     <nav>
-      <Link href='/'>
-        <a className={router.pathname==='/' ? 'active' : ''}>Home</a>
-      </Link>
-      <Link href='/about'>
-        <a className={router.pathname==='/about' ? 'active' : ''}>About</a>
-      </Link>
+      <img src="xxx" />
+      <div>
+        <Link href='/'>
+          <a className={router.pathname==='/' ? 'active' : ''}>Home</a>
+        </Link>
+        <Link href='/about'>
+          <a className={router.pathname==='/about' ? 'active' : ''}>About</a>
+        </Link>
+      </div>
       <style jsx>
         {`          
           nav {
