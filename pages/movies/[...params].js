@@ -29,7 +29,7 @@ export default function Detail({params}) {
 // 유저에게 절대 Loading을 보여주지 않고,SEO에 최적하기 위해 getServerSideProps 작성
 // fetch로 데이터를 가져오는 것 보단 url에서 더 빠르게 데이터 가져오기 위함
 // request 정보를 얻을 수 있어 영화 제목 및 id 얻기 가능
-// ctc(Next.js가 제공하는 server-side context)를 console 찍어보면 server에 params가 있음
+// ctx(Next.js가 제공하는 server-side context)를 console 찍어보면 server에 params가 있음
 
 // ctx에 {params: {params: []}}를 활용할 거라 ctx를 {params: {params}}로 비구조할당
 export function getServerSideProps({params: {params}}) {
