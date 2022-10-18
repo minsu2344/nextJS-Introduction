@@ -6,7 +6,6 @@ export default function NavBar() {
 
   return(
     <nav>
-      {/* warning 라인은 next에서 제공하는 img를 사용하라는 것 */}
       <img src="/vercel.svg" />
       <div>
         <Link href='/'>

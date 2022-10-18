@@ -5,7 +5,6 @@ import Seo from "./Seo"
 export default function Home({results}) {
   const router = useRouter();
   function onClick(id, title) {
-    // 내용 지우고 push(`/movies/${title}/${id})로 변경
     router.push(`/movies/${title}/${id}`);
   }
   return (
@@ -15,7 +14,6 @@ export default function Home({results}) {
         <div onClick={() => onClick(movie.id, movie.original_title)} className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>
-            {/* 링크도 router와 같이 변경 */}
             <Link href={`/movies/${movie.original_title}/${movie.id}`}>
               <a>
                 {movie.original_title}
