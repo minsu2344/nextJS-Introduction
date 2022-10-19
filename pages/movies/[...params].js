@@ -17,7 +17,6 @@ export default function Detail({params, data}) {
       <DetailContainer>
         <ImageBox src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
         <Contents>
-          {!adult && <Adult>청소년 관람 불가</Adult>}
           <div>
             <h4>개봉일자</h4>
             <p>{release_date}</p>
@@ -26,6 +25,7 @@ export default function Detail({params, data}) {
             <h4>줄거리</h4>
             <p>{overview}</p>
           </div>
+          {adult && <Adult>청소년 관람 불가</Adult>}
         </Contents>
       </DetailContainer>
     </>
@@ -48,8 +48,9 @@ const TitleContainer = styled.div`
 const DetailContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 0.75rem;
+  gap: 1rem;
   justify-content: center;
+  align-items: start;
 `
 
 const ImageBox = styled.img`
@@ -64,11 +65,12 @@ const Adult = styled.p`
 
 const Contents = styled.div`
   h4 {
-    margin-top: 2rem;
-    margin-bottom: 0.25rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
   }
-  p {
-    margin: 0;
+  h4 + p {
+    margin-bottom: 1.5rem;
+    margin-top: 0;
   }
 `
 
