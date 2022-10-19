@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import styled from "styled-components";
 import Seo from "../Seo";
 
 export default function Detail({params, data}) {
@@ -9,23 +10,67 @@ export default function Detail({params, data}) {
   return (
     <>
       <Seo title={title} />
-      <div>
+      <TitleContainer>
         <h3>{title}</h3>
-        <p>★ {`${vote_average.toFixed(2)} (${vote_count})`}</p>
-      </div>
-      <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
-      {!adult && <p>청소년 관람 불가</p>}
-      <div>
-        <h4>개봉일자</h4>
-        <p>{release_date}</p>
-      </div>
-      <div>
-        <h4>줄거리</h4>
-        <p>{overview}</p>
-      </div>
+        <p>★ <b>{`${vote_average.toFixed(2)}`}</b> {`(${vote_count})`}</p>
+      </TitleContainer>
+      <DetailContainer>
+        <ImageBox src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+        <Contents>
+          {!adult && <Adult>청소년 관람 불가</Adult>}
+          <div>
+            <h4>개봉일자</h4>
+            <p>{release_date}</p>
+          </div>
+          <div>
+            <h4>줄거리</h4>
+            <p>{overview}</p>
+          </div>
+        </Contents>
+      </DetailContainer>
     </>
   );
 }
+
+const TitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.75rem;
+  h3 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+`;
+
+const DetailContainer = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 0.75rem;
+  justify-content: center;
+`
+
+const ImageBox = styled.img`
+  width: 100%;
+`
+
+const Adult = styled.p`
+  color: tomato;
+  font-weight: 600;
+  margin: 0;
+`
+
+const Contents = styled.div`
+  h4 {
+    margin-top: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  p {
+    margin: 0;
+  }
+`
 
 export async function getServerSideProps({params: {params}}) {
   const data = await(await fetch(`http://localhost:3000/api/movies/${params[1]}`)).json();
