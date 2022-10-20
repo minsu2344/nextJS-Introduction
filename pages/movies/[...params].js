@@ -4,9 +4,11 @@ import Seo from "../Seo";
 
 export default function Detail({params, data}) {
   const router = useRouter();
-  console.log(data);
   const {adult, overview, poster_path, release_date, vote_average, vote_count} = data;
   const [title, id] = params || [];
+
+
+
   return (
     <>
       <Seo title={title} />

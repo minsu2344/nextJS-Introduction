@@ -8,7 +8,7 @@ export default function Potato() {
   useEffect(() => {
     setTimeout(() => {
       setOpen(true);
-    }, 2000);
+    }, 1000);
   }, [])
   return (
     <div>
