@@ -22,9 +22,11 @@ export default function Potato() {
 const Animation = styled.h2`
   color: pink;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 1s ease-in-out;
   ${props => props.isOpen && css `
     opacity: 1;
+    visibility: visible;
     pointer-events: visible;
   `}
 `
